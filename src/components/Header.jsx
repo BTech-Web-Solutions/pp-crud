@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <AsideMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <header className="h-10 py-10 px-6 flex justify-between items-center border-b-2 border-zinc-500">
+      <header className="h-10 py-10 px-6 flex justify-between items-center border-b-2 border-zinc-500 mb-10">
         <h1
           className="text-lg"
           style={{
