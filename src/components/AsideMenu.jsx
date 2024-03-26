@@ -42,6 +42,9 @@ const AsideMenu = ({ isOpen, onClose }) => {
             <a href="/registered">
               <li className="hover:text-zinc-900">Clientes Cadastrados</li>
             </a>
+            <a href="/draw">
+              <li className="hover:text-zinc-900">Sortear</li>
+            </a>
           </ul>
         </div>
       </div>
