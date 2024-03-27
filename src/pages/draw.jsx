@@ -1,3 +1,5 @@
+import { MoveLeft } from "lucide-react";
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 
 const Draw = () => {
@@ -6,6 +8,8 @@ const Draw = () => {
   const [allNumbers, setAllNumbers] = useState([]);
   const [isDrawing, setIsDrawing] = useState(false); // Estado para controlar se o sorteio está em andamento
   const [currentIndex, setCurrentIndex] = useState(0); // Índice do número atual
+
+  const router = useRouter();
 
   const getUsers = async () => {
     const response = await fetch("/api/getUsers");
@@ -57,6 +61,12 @@ const Draw = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-12">
+      <div
+        className="flex justify-start items-start w-full px-5 cursor-pointer"
+        onClick={() => router.push("/")}
+      >
+        <MoveLeft className="h-8 w-8 text-red-700" />
+      </div>
       <div className="flex items-center justify-center gap-5">
         <h1 className="text-[100px] font-bold">{number}</h1>
       </div>

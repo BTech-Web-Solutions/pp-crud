@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { SquarePen, Trash2 } from "lucide-react";
+import { MoveLeft, SquarePen, Trash2 } from "lucide-react";
 
 const Index = () => {
   const [customer, setCustomer] = useState({

@@ -1,8 +1,11 @@
-import { Trash2 } from "lucide-react";
+import { MoveLeft, Trash2 } from "lucide-react";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
 const index = () => {
   const [customers, setCustomers] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     const getCustomers = async () => {
@@ -15,6 +18,12 @@ const index = () => {
 
   return (
     <div className="flex flex-col justify-center px-8">
+      <div
+        className="flex justify-start items-start w-full px-5 cursor-pointer"
+        onClick={() => router.push("/")}
+      >
+        <MoveLeft className="h-8 w-8 text-red-700" />
+      </div>
       <h1 className="text-2xl font-bold text-center mb-10">
         Clientes Cadastrados
       </h1>

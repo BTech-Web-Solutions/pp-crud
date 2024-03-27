@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { MoveLeft, Plus } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -56,6 +56,7 @@ export default function Home() {
           type="text"
           placeholder="Nome do Cliente"
           className="text-center p-2 border-b-[1px] border-zinc-400 focus:outline-none"
+          value={client.name}
           onChange={(e) => setClient({ ...client, name: e.target.value })}
         />
       </div>
@@ -66,6 +67,7 @@ export default function Home() {
           type="text"
           placeholder="Número do WhatsApp"
           className="text-center p-2 border-b-[1px] border-zinc-400 focus:outline-none"
+          value={client.whatsapp}
           onChange={(e) => setClient({ ...client, whatsapp: e.target.value })}
         />
       </div>
