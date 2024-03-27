@@ -10,24 +10,26 @@ const index = () => {
     "Oláá!!! Seu numero foi sorteado para ganhar uma caixa de bombom aqui no Primeira Parada. PARABÉNNNSS!";
 
   useEffect(() => {
-    const getCustomer = async () => {
-      const response = await fetch(`http://localhost:3000/api/getUserById/`, {
-        method: "POST",
-        body: {
-          id: id,
-        },
-      });
-      const data = await response.json();
-      setCustomer(data);
-    };
-    getCustomer();
+    setTimeout(() => {
+      const getCustomer = async () => {
+        const response = await fetch("http://localhost:3000/api/getUserById/", {
+          method: "POST",
+          body: {
+            id: id,
+          },
+        });
+        const data = await response.json();
+        setCustomer(data);
+      };
+      getCustomer();
+    }, 50);
   }, []);
 
-  console.log(customer);
+  console.log(customer.sortNumbers);
 
   return (
     <div className="flex flex-col items-center">
-      {/* <h1 className="text-3xl font-bold text-center mb-10">{customer.name}</h1>
+      <h1 className="text-3xl font-bold text-center mb-10">{customer.name}</h1>
       <a
         className="flex gap-2 items-center"
         href={`https://wa.me/55${customer.whatsapp}?text=${encodeURIComponent(
@@ -43,14 +45,14 @@ const index = () => {
       </a>
       <ul className="flex flex-col justify-center items-center">
         <p className="text-lg font-semibold mt-4">Números:</p>
-        <div className="flex gap-2">
-          {customer.sortNumbers.map((number, index) => (
-            <li key={index} className="text-lg">
+        <div className="flex gap-3">
+          {customer.sortNumbers?.map((number) => (
+            <li key={number} className="text-xl">
               {number}
             </li>
           ))}
         </div>
-      </ul> */}
+      </ul>
     </div>
   );
 };
