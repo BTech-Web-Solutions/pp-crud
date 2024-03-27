@@ -12,7 +12,6 @@ const index = () => {
     };
     getCustomers();
   }, []);
-  console.log(customers);
 
   return (
     <div className="flex flex-col justify-center px-8">
