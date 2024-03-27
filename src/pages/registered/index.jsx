@@ -5,7 +5,7 @@ const index = () => {
 
   useEffect(() => {
     const getCustomers = async () => {
-      const response = await fetch("http://localhost:3000/api/getUsers");
+      const response = await fetch("/api/getUsers");
       const data = await response.json();
       setCustomers(data);
     };

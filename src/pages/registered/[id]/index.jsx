@@ -11,7 +11,7 @@ const index = () => {
 
   useEffect(() => {
     const getCustomer = async () => {
-      const response = await fetch(`http://localhost:3000/api/getUserById/`, {
+      const response = await fetch(`/api/getUserById`, {
         method: "POST",
         body: {
           id: id,
