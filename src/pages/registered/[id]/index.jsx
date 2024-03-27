@@ -1,22 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const index = () => {
-  const [customer, setCustomer] = useState({
-    id: 1,
-    name: "Bernardo",
-    whatsapp: "22981556221",
-    sortNumbers: [1, 2, 3],
-  });
+  const [customer, setCustomer] = useState([]);
 
   const router = useRouter();
   const { id } = router.query;
   const DEFAULT_WHATSAPP_MESSAGE =
     "Oláá!!! Seu numero foi sorteado para ganhar uma caixa de bombom aqui no Primeira Parada. PARABÉNNNSS!";
 
+  useEffect(() => {
+    const getCustomer = async () => {
+      const response = await fetch(`http://localhost:3000/api/getUser/`, {
+        method: "POST",
+        body: {
+          id: id,
+        },
+      });
+      const data = await response.json();
+      setCustomer(data);
+    };
+    getCustomer();
+  }, []);
+
+  console.log(customer);
+
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-3xl font-bold text-center mb-10">{customer.name}</h1>
+      {/* <h1 className="text-3xl font-bold text-center mb-10">{customer.name}</h1>
       <a
         className="flex gap-2 items-center"
         href={`https://wa.me/55${customer.whatsapp}?text=${encodeURIComponent(
@@ -39,7 +50,7 @@ const index = () => {
             </li>
           ))}
         </div>
-      </ul>
+      </ul> */}
     </div>
   );
 };

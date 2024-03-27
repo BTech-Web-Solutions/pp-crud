@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 
-const schema = new mongoose.Schema({
-  name: String,
-  whatsapp: String,
-  numbers: [Number],
-});
-//@ts-ignore
-const User = mongoose.model("User", schema);
+// Check if the model already exists to prevent redefining it
+const User =
+  mongoose.models.User ||
+  mongoose.model(
+    "User",
+    new mongoose.Schema({
+      name: String,
+      whatsapp: String,
+      sortNumbers: [Number],
+    })
+  );
 
 export { User };

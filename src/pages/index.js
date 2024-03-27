@@ -21,6 +21,31 @@ export default function Home() {
     });
   };
 
+  const handleSaveClient = async () => {
+    const response = await fetch("http://localhost:3000/api/createUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: client.name,
+        whatsapp: client.whatsapp,
+        sortNumbers: client.sortNumbers,
+      }),
+    });
+
+    if (response.ok) {
+      setClient({
+        name: "",
+        whatsapp: "",
+        sortNumbers: [],
+        currentSortNumber: "",
+      });
+    } else {
+      console.error("Error saving client");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center gap-10">
       <h1 className="text-2xl font-bold">Cadastrar número</h1>
@@ -74,7 +99,7 @@ export default function Home() {
       <button
         className="bg-red-800 p-3 rounded-full border-[2px] border-black text-zinc-200"
         onClick={(e) => {
-          console.log(client);
+          handleSaveClient();
           e.target.classList.add("bg-red-900");
 
           setTimeout(() => {
