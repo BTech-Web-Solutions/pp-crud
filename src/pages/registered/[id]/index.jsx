@@ -17,7 +17,7 @@ const Index = () => {
   useEffect(() => {
     const getCustomer = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/getUserById/", {
+        const response = await fetch("/api/getUserById/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const Index = () => {
 
   const handleAddNumber = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/updateUser/", {
+      const response = await fetch("/api/updateUser/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const Index = () => {
 
   const removeCustomer = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/deleteUser", {
+      const response = await fetch("/api/deleteUser", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
