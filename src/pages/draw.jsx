@@ -8,7 +8,7 @@ const Draw = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // Índice do número atual
 
   const getUsers = async () => {
-    const response = await fetch("http://localhost:3000/api/getUsers");
+    const response = await fetch("/api/getUsers");
     const data = await response.json();
     setCustomers(data);
   };
