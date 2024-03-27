@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const handleSaveClient = async () => {
-    const response = await fetch("http://localhost:3000/api/createUser", {
+    const response = await fetch("/api/createUser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
