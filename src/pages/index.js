@@ -64,11 +64,12 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center ">
         <h3 className="mb-1 text-xl font-semibold">WhatsApp</h3>
         <input
-          type="text"
+          type="number"
           placeholder="Número do WhatsApp"
           className="text-center p-2 border-b-[1px] border-zinc-400 focus:outline-none"
           value={client.whatsapp}
           onChange={(e) => setClient({ ...client, whatsapp: e.target.value })}
+          inputMode="numeric"
         />
       </div>
 
@@ -76,7 +77,7 @@ export default function Home() {
         <h3 className="mb-1 text-xl font-semibold">Números do Sorteio</h3>
         <div className="flex items-center gap-5">
           <input
-            type="text"
+            type="number"
             placeholder="Números"
             value={client.currentSortNumber}
             className="text-center p-2 border-b-[1px] border-zinc-400 focus:outline-none appearance-none"
